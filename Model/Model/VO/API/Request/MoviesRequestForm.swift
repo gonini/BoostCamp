@@ -1,5 +1,5 @@
 //
-//  MoviesResponse.swift
+//  MoviesRequestForm.swift
 //  Model
 //
 //  Created by 장공의 on 14/12/2018.
@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import Common
 
-struct MoviesResponse: Codable {
+struct MoviesRequestForm {
     
     var order_type: Int
-    var movies: [MovieResponse]
     
+    init(orderType: OrderType) {
+        order_type = orderType.rawValue
+    }
 }

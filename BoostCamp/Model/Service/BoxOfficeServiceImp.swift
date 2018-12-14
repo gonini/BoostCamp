@@ -12,7 +12,17 @@ import Common
 
  class BoxOfficeServiceImp: BoxOfficeService {
     
+    let network: Network = Network()
+        
     func getMovies(order: OrderType) -> Single<[Movie]> {
+        
+        let ret: Single<MoviesResponse> = network.request(
+            methodType: HTTPMethod.get,
+            subUrl: "/movies",
+            requestParm: MoviesRequestForm(orderType: order));
+        
+        ret.subscribe();
+        
         return Single<[Movie]>.never()
     }
     
@@ -24,3 +34,5 @@ import Common
         return Single<[Comment]>.never()
     }
 }
+
+

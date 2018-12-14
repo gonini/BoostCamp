@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Model
+import Common
 
 class MoviesTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        ModelFactory.createBoxOfficeSerice().getMovies(order: OrderType.curation)
+        .subscribe()
     }
 
 
