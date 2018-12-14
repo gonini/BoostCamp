@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BoostCamp/View/MoviesTableViewController.swift"
-            timestampString = "566485630.7573889"
+            timestampString = "566497301.072403"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -26,42 +26,42 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Model/Model/Network/Network.swift"
-            timestampString = "566485630.7579859"
+            timestampString = "566497301.072479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "request(methodType:subUrl:requestParm:)"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "request(methodType:resPath:reqParameter:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Model.Network.request&lt;A where A: Swift.Decodable&gt;(methodType: Model.HTTPMethod, subUrl: Swift.String, requestParm: Any) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, A&gt;"
+                  symbolName = "Model.Network.request&lt;A where A: Swift.Decodable&gt;(methodType: Model.HTTPMethod, subUrl: Swift.String, reqParameter: Any) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, A&gt;"
                   moduleName = "Model"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jang-gong-ui/Documents/BoostCamp/Model/Model/Network/Network.swift"
-                  timestampString = "566485631.000684"
+                  timestampString = "566495628.95795"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "3610">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "937">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 ((RxSwift.SingleEvent&lt;A&gt;) -&gt; ()) -&gt; RxSwift.Disposable in Model.Network.request&lt;A where A: Swift.Decodable&gt;(methodType: Model.HTTPMethod, subUrl: Swift.String, requestParm: Any) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, A&gt;"
+                  symbolName = "closure #1 ((RxSwift.SingleEvent&lt;A&gt;) -&gt; ()) -&gt; RxSwift.Disposable in Model.Network.request&lt;A where A: Swift.Decodable&gt;(methodType: Model.HTTPMethod, subUrl: Swift.String, reqParameter: Any) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, A&gt;"
                   moduleName = "Model"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jang-gong-ui/Documents/BoostCamp/Model/Model/Network/Network.swift"
-                  timestampString = "566485631.003311"
+                  timestampString = "566495628.960723"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
                   offsetFromSymbolStart = "35">
                </Location>
             </Locations>
@@ -74,12 +74,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Model/Model/Network/Network.swift"
-            timestampString = "566485630.758315"
+            timestampString = "566497301.072559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "request(methodType:subUrl:requestParm:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "request(methodType:resPath:reqParameter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Model/Model/Network/Network.swift"
+            timestampString = "566497301.072624"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "request(methodType:resPath:reqParameter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Model/Model/Network/Network.swift"
+            timestampString = "566497301.072684"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "request(methodType:resPath:reqParameter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Model/Model/Network/Network.swift"
-            timestampString = "566485630.7586319"
+            timestampString = "566497301.0727381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "request(methodType:subUrl:requestParm:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "request(methodType:resPath:reqParameter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,12 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Model/Model/Network/Network.swift"
-            timestampString = "566485630.7589411"
+            timestampString = "566497301.07279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "request(methodType:subUrl:requestParm:)"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "parsingQuery(sources:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,28 +154,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Model/Model/Network/Network.swift"
-            timestampString = "566485630.759241"
+            timestampString = "566497301.072841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "request(methodType:subUrl:requestParm:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Model/Model/Network/Network.swift"
-            timestampString = "566485652.268701"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "request(methodType:subUrl:requestParm:)"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "request(methodType:resPath:reqParameter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

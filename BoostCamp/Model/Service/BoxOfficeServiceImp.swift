@@ -18,8 +18,8 @@ import Common
         
         let ret: Single<MoviesResponse> = network.request(
             methodType: HTTPMethod.get,
-            subUrl: "/movies",
-            requestParm: MoviesRequestForm(orderType: order));
+            resPath: ResourcesPath.Movies,
+            reqParameter:  MoviesRequestForm(orderType: order));
         
         ret.subscribe();
         

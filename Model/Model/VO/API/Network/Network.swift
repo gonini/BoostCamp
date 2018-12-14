@@ -12,23 +12,15 @@ import RxCocoa
 
 class Network {
     
-    private static let BASE_HOST = "http://connect-boxoffice.run.goorm.io";
-    
-    func request<T: Decodable>(methodType: HTTPMethod, subUrl: String, requestParm: Any) -> Single<T> {
+    private static let BASE_URL = "http://connect-boxoffice.run.goorm.io";
+
+    func request<T: Decodable>(methodType: HTTPMethod, resPath: ResourcesPath, reqParameter: Any) -> Single<T> {
         
         guard methodType == HTTPMethod.get else {
-            return Single<T>.never();
+            return Single<T>.never()
         }
         
-        let url = URL(string: Network.BASE_HOST + subUrl)!
-        
-        var components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
-        
-        components.queryItems = getQuery(requestParm)
-        
-        components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
-        
-        let request = URLRequest(url: components.url!)
+        let request = URLRequest(url: self.createURL(resPath, reqParameter))
         
         return Single<T>.create { single in
             
@@ -43,8 +35,8 @@ class Network {
                     return
                 }
                 
-                let a = try! JSONDecoder.init().decode(T.self, from: data);
-                single(.success((a)))
+                let result = try! JSONDecoder.init().decode(T.self, from: data);
+                single(.success((result)))
             }
             
             task.resume()
@@ -55,16 +47,28 @@ class Network {
         }
     }
     
-    
-    
-    private func getQuery(_ value: Any) -> [URLQueryItem]?
-    {
-        let mirror = Mirror(reflecting: value)
+    private func createURL(_ resPath: ResourcesPath, _ reqParameter: Any) -> URL {
+        var components = URLComponents(
+            url: URL(string: Network.BASE_URL + resPath.rawValue)!,
+            resolvingAgainstBaseURL: false
+            )!
         
+        components.queryItems = components.parsingQuery(sources: reqParameter)
+        
+        return components.url!;
+    }
+}
+
+fileprivate extension URLComponents {
+    
+    func parsingQuery(sources: Any) -> [URLQueryItem]? {
+        
+        let mirror = Mirror(reflecting: sources)
         var parameters = [String: String]()
+        
         for (_, attr) in mirror.children.enumerated() {
-            if let property_name = attr.label as String! {
-                parameters[property_name] = stringFromAny(attr.value);
+            if let key = attr.label as String! {
+                parameters[key] = stringFromAny(attr.value);
             }
         }
         
@@ -80,3 +84,4 @@ class Network {
         return ""
     }
 }
+
