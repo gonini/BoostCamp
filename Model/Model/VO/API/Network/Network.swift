@@ -67,7 +67,7 @@ fileprivate extension URLComponents {
         var parameters = [String: String]()
         
         for (_, attr) in mirror.children.enumerated() {
-            if let key = attr.label as String! {
+            if let key = attr.label as String? {
                 parameters[key] = stringFromAny(attr.value);
             }
         }
