@@ -15,31 +15,44 @@ import RxSwift
 class MoviesViewModelImp: MoviesViewModel {
     
     private var service: BoxOfficeService?
-    
-    private let progress: PublishSubject<ProgressStatus>
+    private let progressSubject: PublishSubject<ProgressStatus>
+    private let moviesSubject: PublishSubject<[Movie]>
     
     public init(service: BoxOfficeService) {
         self.service = service
-        progress = PublishSubject()
+        progressSubject = PublishSubject()
+        moviesSubject = PublishSubject()
     }
     
     public var progressObservable: Observable<ProgressStatus> {
-        return progress
+        return progressSubject
     }
     
-    public func requestMovies(orderType: OrderType) -> Single<[Movie]> {
-        progress.onNext(ProgressStatus.show)
-        return service?.getMovies(order: orderType)
+    public var moviesObservable: Observable<[Movie]> {
+        return moviesSubject
+    }
+    
+    public func requestMovies(orderType: OrderType) {
+        progressSubject.onNext(ProgressStatus.show)
+        service?.getMovies(order: orderType)
             .subscribeOn(MainScheduler.instance)
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .do(onSuccess: { _ in self.progress.onNext(ProgressStatus.close)})
-            .do(onError: { _ in self.progress.onNext(ProgressStatus.close)})
-            ?? Single.never()
+            .subscribe(
+                onSuccess: {
+                    self.moviesSubject.onNext($0)
+                    self.progressSubject.onNext(ProgressStatus.close)
+                },
+                onError: {
+                    self.moviesSubject.onError($0)
+                    self.progressSubject.onNext(ProgressStatus.close)
+                }
+            )
     }
-   
+    
     public func dispose() {
         service = nil
-        progress.dispose()
+        progressSubject.dispose()
+        moviesSubject.dispose()
     }
     
 }

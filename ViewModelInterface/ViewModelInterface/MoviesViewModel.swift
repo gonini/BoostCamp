@@ -12,5 +12,6 @@ import RxSwift
 
 public protocol MoviesViewModel: Disposable {
     var progressObservable: Observable<ProgressStatus> { get }
-    func requestMovies(orderType: OrderType) -> Single<[Movie]>
+    var moviesObservable: Observable<[Movie]> { get }
+    func requestMovies(orderType: OrderType);
 }

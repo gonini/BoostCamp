@@ -7,21 +7,21 @@
 //
 
 import UIKit
-import Model
-import Common
-import ViewModel
 import RxSwift
+import Common
+import ViewModelInterface
 
 class MoviesTableViewController: UIViewController {
-
+    
+    var moviesViewModel: MoviesViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        moviesViewModel?.requestMovies(orderType: OrderType.advanceRate)
         
-   
     }
-
-
+    
 }
 
