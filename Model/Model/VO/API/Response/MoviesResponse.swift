@@ -9,8 +9,6 @@
 import Foundation
 
 struct MoviesResponse: Codable {
-    
     var order_type: Int
     var movies: [MovieResponse]
-    
 }

@@ -10,14 +10,14 @@ import Foundation
 
 public struct Movie {
     
-    var rating: Rating
-    var thumb: String
-    var reservation_grade: Int
-    var title: String
-    var reservation_rate: Double
-    var user_rating: Double
-    var date: String
-    var id: String
+    let rating: Rating
+    let thumb: String
+    let reservation_grade: Int
+    let title: String
+    let reservation_rate: Double
+    let user_rating: Double
+    let date: String
+    let id: String
     
     public init(rating: Rating,
                 thumb: String,

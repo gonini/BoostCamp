@@ -9,7 +9,7 @@
 import Foundation
 
 enum ResourcesPath: String {
-    case Movies = "/movies"
-    case MovieDetails = "/movie"
-    case Comments = "/comments"
+    case movies = "/movies"
+    case movieDetails = "/movie"
+    case comments = "/comments"
 }

@@ -1,5 +1,5 @@
 //
-//  CommentsResponse.swift
+//  CommentResponse.swift
 //  Model
 //
 //  Created by 장공의 on 15/12/2018.
@@ -8,7 +8,10 @@
 
 import Foundation
 
-struct CommentsResponse: Codable {
+struct CommentResponse: Codable {
+    var rating: Double
+    var timestamp: Double
+    var writer: String
     var movie_id: String
-    var comments: [CommentResponse]
+    var contents: String
 }

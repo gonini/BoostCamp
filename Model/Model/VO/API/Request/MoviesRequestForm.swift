@@ -11,7 +11,7 @@ import Common
 
 struct MoviesRequestForm {
     
-    var order_type: Int
+    private let order_type: Int
     
     init(orderType: OrderType) {
         order_type = orderType.rawValue

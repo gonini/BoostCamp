@@ -10,10 +10,21 @@ import Foundation
 
 public struct Comment {
     
-    var rating: Double
-    var timestamp: Double
-    var writer: String
-    var movie_id: String
-    var contents: String
+    let rating: Double
+    let timestamp: Double
+    let writer: String
+    let movie_id: String
+    let contents: String
     
+    public init(rating: Double,
+                timestamp: Double,
+                writer: String,
+                movie_id: String,
+                contents: String) {
+        self.rating = rating
+        self.timestamp = timestamp
+        self.writer = writer
+        self.movie_id = movie_id
+        self.contents = contents
+    }
 }

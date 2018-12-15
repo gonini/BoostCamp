@@ -9,7 +9,6 @@
 import Foundation
 
 struct MovieDetailsResponse: Codable {
-    
     var audience: Int
     var actor: String
     var duration: Int
@@ -24,5 +23,4 @@ struct MovieDetailsResponse: Codable {
     var user_rating: Double
     var date: String
     var id: String
-    
 }

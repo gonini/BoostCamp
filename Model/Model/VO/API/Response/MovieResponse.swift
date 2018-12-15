@@ -9,7 +9,6 @@
 import Foundation
 
 struct MovieResponse: Codable {
-    
     var grade: Int
     var thumb: String
     var reservation_grade: Int
@@ -18,5 +17,4 @@ struct MovieResponse: Codable {
     var user_rating: Double
     var date: String
     var id: String
-    
 }

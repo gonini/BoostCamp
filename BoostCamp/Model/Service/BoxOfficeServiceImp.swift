@@ -12,18 +12,18 @@ import Common
 
  class BoxOfficeServiceImp: BoxOfficeService {
     
-    let network: Network = Network()
+    private let network: Network = Network()
         
     func getMovies(order: OrderType) -> Single<[Movie]> {
         
-        let moviesResponseSingle: Single<MoviesResponse> = network.request(
+        let moviesResponse: Single<MoviesResponse> = network.request(
             methodType: HTTPMethod.get,
-            resPath: ResourcesPath.Movies,
-            reqParameter:  MoviesRequestForm(orderType: order));
+            resPath: ResourcesPath.movies,
+            reqParameter:  MoviesRequestForm(orderType: order))
         
-        return moviesResponseSingle
+        return moviesResponse
             .map { $0.movies }
-            .map { $0.map{ movieRes -> Movie in
+            .map { $0.map { movieRes -> Movie in
                 return Movie(
                     rating: Rating.init(rawValue: movieRes.grade) ?? Rating.all,
                     thumb: movieRes.thumb,
@@ -32,16 +32,56 @@ import Common
                     reservation_rate: movieRes.reservation_rate,
                     user_rating: movieRes.user_rating,
                     date: movieRes.date,
-                    id: movieRes.id);
-                }};
+                    id: movieRes.id)
+                }
+        };
     }
     
-    func getMovieDetails(id: String) -> Single<MovieDetails> {
-        return Single<MovieDetails>.never()
+    func getMovieDetails(id movieId: String) -> Single<MovieDetails> {
+        
+        let movieDetailsResponse: Single<MovieDetailsResponse> = network.request(
+            methodType: HTTPMethod.get,
+            resPath: ResourcesPath.movieDetails,
+            reqParameter: MovieDetailsRequestForm(movieId: movieId))
+        
+        return movieDetailsResponse
+            .map { res -> MovieDetails in
+                return MovieDetails(
+                    audience: res.audience,
+                    actor: res.actor,
+                    duration: res.duration,
+                    director: res.director,
+                    synopsis: res.synopsis,
+                    genre: res.genre,
+                    rating: Rating.init(rawValue: res.grade) ?? Rating.all,
+                    image: res.image,
+                    reservation_grade: res.reservation_grade,
+                    title: res.title,
+                    reservation_rate: res.reservation_rate,
+                    user_rating: res.user_rating,
+                    date: res.date,
+                    id: res.id)
+        }
     }
     
     func getComments(movieId: String) -> Single<[Comment]> {
-        return Single<[Comment]>.never()
+        
+        let commentsResponse: Single<CommentsResponse> = network.request(
+            methodType: HTTPMethod.get,
+            resPath: ResourcesPath.comments,
+            reqParameter: CommentRequestForm(movieId: movieId));
+        
+        return commentsResponse
+            .map { $0.comments }
+            .map { $0.map { res -> Comment in
+                return Comment(
+                    rating: res.rating,
+                    timestamp: res.timestamp,
+                    writer: res.writer,
+                    movie_id: res.movie_id,
+                    contents: res.contents)
+                }
+        }
     }
 }
 
