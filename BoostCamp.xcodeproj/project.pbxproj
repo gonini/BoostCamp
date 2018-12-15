@@ -12,6 +12,7 @@
 		9917941721C4EFE600FB3BEE /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9917941621C4EFE600FB3BEE /* Swinject.framework */; };
 		9917941921C4EFE600FB3BEE /* SwinjectStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9917941821C4EFE600FB3BEE /* SwinjectStoryboard.framework */; };
 		9917941B21C5010900FB3BEE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9917941A21C5010900FB3BEE /* TabBarController.swift */; };
+		9917941F21C50E2000FB3BEE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9917941E21C50E2000FB3BEE /* NavigationViewController.swift */; };
 		9947073A21C12AD40097F847 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9947073921C12AD40097F847 /* AppDelegate.swift */; };
 		9947073C21C12AD40097F847 /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9947073B21C12AD40097F847 /* MoviesTableViewController.swift */; };
 		9947073E21C12AD40097F847 /* MoviesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9947073D21C12AD40097F847 /* MoviesCollectionViewController.swift */; };
@@ -42,6 +43,7 @@
 		9917941621C4EFE600FB3BEE /* Swinject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9917941821C4EFE600FB3BEE /* SwinjectStoryboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwinjectStoryboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9917941A21C5010900FB3BEE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		9917941E21C50E2000FB3BEE /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		9947073621C12AD40097F847 /* BoostCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoostCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9947073921C12AD40097F847 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9947073B21C12AD40097F847 /* MoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				9947073D21C12AD40097F847 /* MoviesCollectionViewController.swift */,
 				99CD751A21C2848B00382BEA /* MovieDetailsViewController.swift */,
 				9917941A21C5010900FB3BEE /* TabBarController.swift */,
+				9917941E21C50E2000FB3BEE /* NavigationViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				9947073A21C12AD40097F847 /* AppDelegate.swift in Sources */,
 				9917941B21C5010900FB3BEE /* TabBarController.swift in Sources */,
 				9917941521C4EF8E00FB3BEE /* SwinjectStoryboard.swift in Sources */,
+				9917941F21C50E2000FB3BEE /* NavigationViewController.swift in Sources */,
 				9947073C21C12AD40097F847 /* MoviesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
