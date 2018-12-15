@@ -8,13 +8,21 @@
 
 import Foundation
 import UIKit
+import ViewModelInterface
 
 class TabBarController: UITabBarController  {
     
+    var viewModel: MoviesRequestable?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        var asd = 2
+        preloadTabItems()
+    }
+    
+    private func preloadTabItems() {
+        for viewController in self.viewControllers! {
+            _ = viewController.view
+        }
     }
     
 }

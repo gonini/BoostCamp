@@ -13,13 +13,12 @@ import ViewModelInterface
 
 class MoviesTableViewController: UIViewController {
     
-    var moviesViewModel: MoviesViewModel?
+    var viewModel: MoviesBindable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        moviesViewModel?.requestMovies(orderType: OrderType.advanceRate)
         
     }
     

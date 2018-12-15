@@ -18,15 +18,19 @@ extension SwinjectStoryboard {
         
         defaultContainer.register(BoxOfficeService.self) { _ in
             ModelFactory.createBoxOfficeSerice()
-        }
+        }.inObjectScope(.container)
         
         defaultContainer.register(MoviesViewModel.self) { r in
             ViewModelFactory.createMoviesViewModel(
                 service: r.resolve(BoxOfficeService.self)!)
+        }.inObjectScope(.container)
+        
+        defaultContainer.storyboardInitCompleted(TabBarController.self) { r, c in
+            c.viewModel = r.resolve(MoviesViewModel.self)!
         }
         
         defaultContainer.storyboardInitCompleted(MoviesTableViewController.self) { r, c in
-            c.moviesViewModel = r.resolve(MoviesViewModel.self)!
+            c.viewModel = r.resolve(MoviesViewModel.self)!
         }
         
     }

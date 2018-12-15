@@ -10,8 +10,13 @@ import Foundation
 import Common
 import RxSwift
 
-public protocol MoviesViewModel: Disposable {
+public protocol MoviesViewModel: MoviesRequestable, MoviesBindable, Disposable { }
+
+public protocol MoviesRequestable {
+    func requestMovies(orderType: OrderType);
+}
+
+public protocol MoviesBindable {
     var progressObservable: Observable<ProgressStatus> { get }
     var moviesObservable: Observable<[Movie]> { get }
-    func requestMovies(orderType: OrderType);
 }

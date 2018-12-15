@@ -15,11 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     let container: Container = Container() { container in
-//        
-//        container.register(MoviesViewModel.self) { _ in
-//            return MoviesViewModel();
-//        }.inObjectScope(.container)
-//        
+
         
     }
 
