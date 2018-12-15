@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		991793D921C4DF4000FB3BEE /* ProgressStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991793D821C4DF4000FB3BEE /* ProgressStatus.swift */; };
 		9982E8B021C2AE540070334D /* OrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982E8AF21C2AE540070334D /* OrderType.swift */; };
 		9982E8B521C2B0700070334D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982E8B421C2B0700070334D /* Movie.swift */; };
 		9982E8B721C2B0FA0070334D /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982E8B621C2B0FA0070334D /* MovieDetails.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		991793D821C4DF4000FB3BEE /* ProgressStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStatus.swift; sourceTree = "<group>"; };
 		9982E8A421C2ADD70070334D /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9982E8A821C2ADD70070334D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9982E8AF21C2AE540070334D /* OrderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderType.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				9982E8B621C2B0FA0070334D /* MovieDetails.swift */,
 				9982E8B821C2B1470070334D /* Comment.swift */,
 				9982E8BA21C2B1EB0070334D /* Rating.swift */,
+				991793D821C4DF4000FB3BEE /* ProgressStatus.swift */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			files = (
 				9982E8B521C2B0700070334D /* Movie.swift in Sources */,
 				9982E8B021C2AE540070334D /* OrderType.swift in Sources */,
+				991793D921C4DF4000FB3BEE /* ProgressStatus.swift in Sources */,
 				9982E8BB21C2B1EB0070334D /* Rating.swift in Sources */,
 				9982E8B721C2B0FA0070334D /* MovieDetails.swift in Sources */,
 				9982E8B921C2B1470070334D /* Comment.swift in Sources */,

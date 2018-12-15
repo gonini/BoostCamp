@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ViewModel
 
 public class ModelFactory {
     

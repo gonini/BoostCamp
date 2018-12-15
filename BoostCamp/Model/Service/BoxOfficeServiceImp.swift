@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import Common
+import ViewModel
 
  class BoxOfficeServiceImp: BoxOfficeService {
     

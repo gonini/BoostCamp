@@ -9,6 +9,8 @@
 import UIKit
 import Model
 import Common
+import ViewModel
+import RxSwift
 
 class MoviesTableViewController: UIViewController {
 
@@ -16,8 +18,8 @@ class MoviesTableViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        ModelFactory.createBoxOfficeSerice().getComments(movieId: "5a54c286e8a71d136fb5378e")
-        .subscribe()
+        
+   
     }
 
 
