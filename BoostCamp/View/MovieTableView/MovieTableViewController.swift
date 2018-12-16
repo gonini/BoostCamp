@@ -30,6 +30,7 @@ class MovieTableViewController: UIViewController {
                     self.movies.removeAll()
                     self.movies += $0
                     self.tableView.reloadData()
+                    self.scrollToTop()
                     
             }, onError: { _ in
                 self.showErrorAlert()
@@ -64,6 +65,33 @@ extension MovieTableViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        let contentSize = scrollView.contentSize.height
+        let tableSize = scrollView.frame.size.height - scrollView.contentInset.top - scrollView.contentInset.bottom
+        let canLoadFromBottom = contentSize > tableSize
+        
+        
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let difference = maximumOffset - currentOffset
+        
+        if canLoadFromBottom, difference <= -120.0 {
+            
+            let previousScrollViewBottomInset = scrollView.contentInset.bottom
+            scrollView.contentInset.bottom = previousScrollViewBottomInset + 50
+            
+            viewModel?.refresh()
+            scrollView.contentInset.bottom = previousScrollViewBottomInset
+            
+        }
+        
+    }
+    
+    func scrollToTop() {
+        let indexPath = IndexPath(row: NSNotFound, section: 0)
+        self.tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: false)
+    }
 }
 
 

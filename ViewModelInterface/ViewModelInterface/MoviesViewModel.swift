@@ -16,7 +16,13 @@ public protocol MoviesRequestable {
     func requestMovies(orderType: OrderType);
 }
 
-public protocol MoviesBindable {
+public protocol Refreshable {
+    func refresh();
+}
+
+public protocol MoviesBindable: Refreshable {
     var progressObservable: Observable<ProgressStatus> { get }
     var moviesObservable: Observable<[Movie]> { get }
 }
+
+

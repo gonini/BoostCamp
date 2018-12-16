@@ -13,8 +13,9 @@ import RxSwift
 
 
 class MoviesViewModelImp: MoviesViewModel {
-    
+   
     private var service: BoxOfficeService?
+    private var prevOrderType: OrderType = OrderType.advanceRate
     private let progressSubject: PublishSubject<ProgressStatus>
     private let moviesSubject: PublishSubject<[Movie]>
     
@@ -33,6 +34,7 @@ class MoviesViewModelImp: MoviesViewModel {
     }
     
     public func requestMovies(orderType: OrderType) {
+        self.prevOrderType = orderType
         progressSubject.onNext(ProgressStatus.show)
         service?.getMovies(order: orderType)
             .subscribeOn(MainScheduler.instance)
@@ -47,6 +49,10 @@ class MoviesViewModelImp: MoviesViewModel {
                     self.progressSubject.onNext(ProgressStatus.close)
                 }
             )
+    }
+    
+    func refresh() {
+        requestMovies(orderType: prevOrderType)
     }
     
     public func dispose() {

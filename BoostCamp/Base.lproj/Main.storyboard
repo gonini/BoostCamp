@@ -86,7 +86,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dia-b1-MwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="-447"/>
+            <point key="canvasLocation" x="777" y="-456"/>
         </scene>
         <!--Item-->
         <scene sceneID="jSP-oQ-sqk">
@@ -183,6 +183,7 @@
                                             <outlet property="reservationRating" destination="spB-i6-6Ay" id="D5y-ln-o15"/>
                                             <outlet property="title" destination="pbQ-cu-uta" id="z9j-YR-06Y"/>
                                             <outlet property="userRating" destination="r7r-ow-0Xh" id="qXt-lk-0lh"/>
+                                            <segue destination="f9p-Ko-IUE" kind="show" id="X7k-rv-7yy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -213,6 +214,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Pv-fR-MB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="776.79999999999995" y="211.84407796101951"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="b8j-zS-jq2">
+            <objects>
+                <viewController id="f9p-Ko-IUE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gSK-Us-R2Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nm2-5b-eRn"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="ndZ-7I-AKW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VYY-uf-4iq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
