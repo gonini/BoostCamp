@@ -35,8 +35,13 @@ class Network {
                     return
                 }
                 
-                let result = try! JSONDecoder.init().decode(T.self, from: data);
-                single(.success((result)))
+                do {
+                    let result = try JSONDecoder.init().decode(T.self, from: data);
+                    single(.success((result)))
+                } catch {
+                    single(.error(RxCocoaURLError.unknown))
+                }
+                
             }
             
             task.resume()

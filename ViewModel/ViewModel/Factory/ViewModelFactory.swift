@@ -14,4 +14,8 @@ public class ViewModelFactory {
     public static func createMoviesViewModel(service: BoxOfficeService) -> MoviesViewModel {
         return MoviesViewModelImp(service: service)
     }
+    
+    public static func createMovieDetailsViewModel(service: BoxOfficeService) -> MovieDetailsViewModel {
+        return MovieDetailsViewModelImp(service: service)
+    }
 }

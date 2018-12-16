@@ -10,21 +10,21 @@ import Foundation
 
 public struct MovieDetails {
     
-    let audience: Int
-    let actor: String
-    let duration: Int
-    let director: String
-    let synopsis: String
-    let genre: String
-    let rating: Rating
-    let image: String
-    let reservation_grade: Int
-    let title: String
-    let reservation_rate: Double
-    let user_rating: Double
-    let date: String
-    let id: String
-    let comments: [Comment]
+    public let audience: String
+    public let actor: String
+    public let duration: String
+    public let director: String
+    public let synopsis: String
+    public let genre: String
+    public let rating: Rating
+    public let image: String
+    public let reservation_grade: String
+    public let title: String
+    public let reservation_rate: String
+    public let user_rating: String
+    public let date: String
+    public let id: String
+    public let comments: [Comment]
     
     public init(audience: Int,
                 actor: String,
@@ -41,18 +41,18 @@ public struct MovieDetails {
                 date: String,
                 id: String,
                 comments: [Comment]) {
-        self.audience = audience
+        self.audience = String(audience)
         self.actor = actor
-        self.duration = duration
+        self.duration = String(duration)
         self.director = director
         self.synopsis = synopsis
         self.genre = genre
         self.rating = rating
         self.image = image
-        self.reservation_grade = reservation_grade
+        self.reservation_grade = String(reservation_grade)
         self.title = title
-        self.reservation_rate = reservation_rate
-        self.user_rating = user_rating
+        self.reservation_rate = String(reservation_rate)
+        self.user_rating = String(user_rating)
         self.date = date
         self.id = id
         self.comments = comments

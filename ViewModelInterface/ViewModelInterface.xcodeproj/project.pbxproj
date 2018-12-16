@@ -11,6 +11,7 @@
 		9917940821C4E3C700FB3BEE /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9917940721C4E3C700FB3BEE /* RxCocoa.framework */; };
 		9917940A21C4E3C700FB3BEE /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9917940921C4E3C700FB3BEE /* RxSwift.framework */; };
 		9917940C21C4E54500FB3BEE /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9917940B21C4E54500FB3BEE /* Disposable.swift */; };
+		99A3325721C6A74600166211 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A3325621C6A74600166211 /* MovieDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		9917940721C4E3C700FB3BEE /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9917940921C4E3C700FB3BEE /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9917940B21C4E54500FB3BEE /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
+		99A3325621C6A74600166211 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		B34DA4CCC0CB221FC421B02D /* Pods-ViewModelInterface.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewModelInterface.debug.xcconfig"; path = "Target Support Files/Pods-ViewModelInterface/Pods-ViewModelInterface.debug.xcconfig"; sourceTree = "<group>"; };
 		BD4FC6E5588FA1EB2B265835 /* Pods_ViewModelInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViewModelInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -59,9 +61,10 @@
 		991793E821C4E2FB00FB3BEE /* ViewModelInterface */ = {
 			isa = PBXGroup;
 			children = (
-				991793EA21C4E2FB00FB3BEE /* Info.plist */,
 				9917940121C4E37E00FB3BEE /* MoviesViewModel.swift */,
+				99A3325621C6A74600166211 /* MovieDetailsViewModel.swift */,
 				9917940B21C4E54500FB3BEE /* Disposable.swift */,
+				991793EA21C4E2FB00FB3BEE /* Info.plist */,
 			);
 			path = ViewModelInterface;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			files = (
 				9917940221C4E37E00FB3BEE /* MoviesViewModel.swift in Sources */,
 				9917940C21C4E54500FB3BEE /* Disposable.swift in Sources */,
+				99A3325721C6A74600166211 /* MovieDetailsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

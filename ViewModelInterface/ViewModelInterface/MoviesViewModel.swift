@@ -13,16 +13,14 @@ import RxSwift
 public protocol MoviesViewModel: MoviesRequestable, MoviesBindable, Disposable { }
 
 public protocol MoviesRequestable {
-    func requestMovies(orderType: OrderType);
+    func requestMovies(orderType: OrderType)
 }
 
 public protocol Refreshable {
-    func refresh();
+    func refresh()
 }
 
 public protocol MoviesBindable: Refreshable {
     var progressObservable: Observable<ProgressStatus> { get }
     var moviesObservable: Observable<[Movie]> { get }
 }
-
-

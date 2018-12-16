@@ -8,6 +8,8 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
+import RxAtomic
 import Common
 import ViewModel
 
@@ -45,8 +47,14 @@ import ViewModel
             resPath: ResourcesPath.movieDetails,
             reqParameter: MovieDetailsRequestForm(movieId: movieId))
         
-        return movieDetailsResponse
-            .map { res -> MovieDetails in
+
+        return Observable.zip(
+            movieDetailsResponse.asObservable(),
+            self.getComments(movieId: movieId).asObservable()
+        ) { ($0, $1) }
+            .map { (arg) -> MovieDetails in
+                
+                let (res, comments) = arg
                 return MovieDetails(
                     audience: res.audience,
                     actor: res.actor,
@@ -61,8 +69,9 @@ import ViewModel
                     reservation_rate: res.reservation_rate,
                     user_rating: res.user_rating,
                     date: res.date,
-                    id: res.id)
-        }
+                    id: res.id,
+                    comments: comments)
+        }.asSingle();
     }
     
     func getComments(movieId: String) -> Single<[Comment]> {

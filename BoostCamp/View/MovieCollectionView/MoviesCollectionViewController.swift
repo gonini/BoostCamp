@@ -45,6 +45,23 @@ class MoviesCollectionViewController: UIViewController {
                 }
             })
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == MovieDetailsViewContoller.MOVIE_ID_KEY {
+            if let row = collectionView?.indexPathsForSelectedItems?.first?.row {
+                let item = movies[row]
+                let toController = segue.destination as! MovieDetailsViewContoller
+                toController.movieId = item.id
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        viewModel?.dispose()
+        movies.removeAll()
+        progressAlert = nil
+        collectionView = nil
+    }
 }
 
 extension MoviesCollectionViewController:

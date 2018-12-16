@@ -22,7 +22,7 @@ class TabBarController: UITabBarController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         preloadTabItems()
-        viewModel?.requestMovies(orderType: OrderType.advanceRate)
+        requestMovies(orderType: OrderType.advanceRate)
     }
     
     @IBAction func sortAction(_ sender: AnyObject) {
@@ -38,24 +38,36 @@ class TabBarController: UITabBarController  {
         alertController.addAction(UIAlertAction(title: cancelButtonTitle, style: .cancel))
         
         alertController.addAction(UIAlertAction(title: advanceRateTitle, style: .default) { _ in
-            self.viewModel?.requestMovies(orderType: OrderType.advanceRate)
+            self.requestMovies(orderType: OrderType.advanceRate)
         })
         
         alertController.addAction(UIAlertAction(title: curation, style: .default) { _ in
-            self.viewModel?.requestMovies(orderType: OrderType.curation)
+            self.requestMovies(orderType: OrderType.curation)
         })
         
         alertController.addAction(UIAlertAction(title: releaseDate,style: .default) { _ in
-            self.viewModel?.requestMovies(orderType: OrderType.releaseDate)
+            self.requestMovies(orderType: OrderType.releaseDate)
         })
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func requestMovies(orderType: OrderType) {
+        setTile(orderType: orderType)
+        self.viewModel?.requestMovies(orderType: orderType)
+    }
+    
+    private func setTile(orderType: OrderType) {
+        self.title = orderType.toString()
     }
     
     private func preloadTabItems() {
         for viewController in self.viewControllers! {
             _ = viewController.view
         }
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        viewModel = nil
     }
     
 }

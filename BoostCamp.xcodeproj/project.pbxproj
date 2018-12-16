@@ -22,6 +22,8 @@
 		99A3324D21C684BF00166211 /* CommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A3324C21C684BF00166211 /* CommonExtension.swift */; };
 		99A3325021C6850000166211 /* MovieTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A3324F21C6850000166211 /* MovieTableCell.swift */; };
 		99A3325321C69E9300166211 /* MoveCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A3325221C69E9300166211 /* MoveCollectionCell.swift */; };
+		99A3325A21C6C9D600166211 /* ImageViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A3325921C6C9D600166211 /* ImageViewContoller.swift */; };
+		99A3325C21C6CE5C00166211 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A3325B21C6CE5C00166211 /* CommentCell.swift */; };
 		99CD751B21C2848B00382BEA /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CD751A21C2848B00382BEA /* MovieDetailsViewController.swift */; };
 		99CD754B21C29E7100382BEA /* Model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CD754A21C29E7100382BEA /* Model.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,8 @@
 		99A3324C21C684BF00166211 /* CommonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
 		99A3324F21C6850000166211 /* MovieTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableCell.swift; sourceTree = "<group>"; };
 		99A3325221C69E9300166211 /* MoveCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCollectionCell.swift; sourceTree = "<group>"; };
+		99A3325921C6C9D600166211 /* ImageViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewContoller.swift; sourceTree = "<group>"; };
+		99A3325B21C6CE5C00166211 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		99CD751A21C2848B00382BEA /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		99CD754A21C29E7100382BEA /* Model.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Model.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -166,15 +170,25 @@
 			path = MovieCollectionView;
 			sourceTree = "<group>";
 		};
+		99A3325821C6AA3700166211 /* MovieDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				99CD751A21C2848B00382BEA /* MovieDetailsViewController.swift */,
+				99A3325B21C6CE5C00166211 /* CommentCell.swift */,
+			);
+			path = MovieDetailsView;
+			sourceTree = "<group>";
+		};
 		99CD750F21C1389000382BEA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				99A3325121C6933000166211 /* MovieCollectionView */,
 				99A3324E21C684EE00166211 /* MovieTableView */,
+				99A3325121C6933000166211 /* MovieCollectionView */,
+				99A3325821C6AA3700166211 /* MovieDetailsView */,
 				99A3324B21C6849A00166211 /* CommnExtenstion */,
-				99CD751A21C2848B00382BEA /* MovieDetailsViewController.swift */,
 				9917941A21C5010900FB3BEE /* TabBarController.swift */,
 				9917941E21C50E2000FB3BEE /* NavigationViewController.swift */,
+				99A3325921C6C9D600166211 /* ImageViewContoller.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,8 +347,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				99A3324A21C672A600166211 /* MovieTableViewController.swift in Sources */,
+				99A3325C21C6CE5C00166211 /* CommentCell.swift in Sources */,
 				99CD751B21C2848B00382BEA /* MovieDetailsViewController.swift in Sources */,
 				99A3325021C6850000166211 /* MovieTableCell.swift in Sources */,
+				99A3325A21C6C9D600166211 /* ImageViewContoller.swift in Sources */,
 				9947073E21C12AD40097F847 /* MoviesCollectionViewController.swift in Sources */,
 				9947073A21C12AD40097F847 /* AppDelegate.swift in Sources */,
 				9917941B21C5010900FB3BEE /* TabBarController.swift in Sources */,

@@ -9,12 +9,12 @@
 import Foundation
 
 public struct Comment {
-    
-    let rating: Double
-    let timestamp: Double
-    let writer: String
-    let movie_id: String
-    let contents: String
+
+    public let rating: Double
+    public let timestamp: String
+    public let writer: String
+    public let movie_id: String
+    public let contents: String
     
     public init(rating: Double,
                 timestamp: Double,
@@ -22,9 +22,21 @@ public struct Comment {
                 movie_id: String,
                 contents: String) {
         self.rating = rating
-        self.timestamp = timestamp
+        self.timestamp = timestamp.toTimeStamp()
         self.writer = writer
         self.movie_id = movie_id
         self.contents = contents
     }
+}
+
+private extension Double {
+    
+    func toTimeStamp() -> String {
+        let date = NSDate(timeIntervalSince1970: self)
+        let dayTimePeriodFormatter = DateFormatter()
+        dayTimePeriodFormatter.dateFormat = "YYYY-MM-dd, hh:mm:ss"
+        let dateString = dayTimePeriodFormatter.string(from: date as Date)
+        return dateString
+    }
+    
 }

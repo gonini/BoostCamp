@@ -21,7 +21,9 @@ class MovieTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         progressAlert = createProgressAlert()
+
         
         viewModel?.moviesObservable
             .observeOn(MainScheduler.instance)
@@ -47,6 +49,23 @@ class MovieTableViewController: UIViewController {
             })
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == MovieDetailsViewContoller.MOVIE_ID_KEY {
+            if let row = tableView?.indexPathForSelectedRow?.row {
+                let item = movies[row]
+                let toController = segue.destination as! MovieDetailsViewContoller
+                toController.movieId = item.id
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        viewModel?.dispose()
+        movies.removeAll()
+        progressAlert = nil
+        tableView = nil
     }
     
 }
