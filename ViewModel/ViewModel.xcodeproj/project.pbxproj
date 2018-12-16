@@ -14,6 +14,7 @@
 		999AF40E21C4D9AE00D08154 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 999AF40D21C4D9AE00D08154 /* Common.framework */; };
 		999AF41221C4D9E200D08154 /* BoxOfficeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999AF41121C4D9E200D08154 /* BoxOfficeService.swift */; };
 		999AF41621C4DA4A00D08154 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 999AF41521C4DA4A00D08154 /* RxSwift.framework */; };
+		99A3325521C6A28B00166211 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A3325421C6A28B00166211 /* MovieDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		999AF40D21C4D9AE00D08154 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		999AF41121C4D9E200D08154 /* BoxOfficeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeService.swift; sourceTree = "<group>"; };
 		999AF41521C4DA4A00D08154 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99A3325421C6A28B00166211 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		B804DC0491B80C3C59EB370E /* Pods-ViewModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewModel.debug.xcconfig"; path = "Target Support Files/Pods-ViewModel/Pods-ViewModel.debug.xcconfig"; sourceTree = "<group>"; };
 		E08A2B130C74837E4250ED8A /* Pods-ViewModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewModel.release.xcconfig"; path = "Target Support Files/Pods-ViewModel/Pods-ViewModel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 				999AF40C21C4D99700D08154 /* ServiceInterface */,
 				9917940D21C4EB0400FB3BEE /* Factory */,
 				999AF40A21C4D92D00D08154 /* MoviesViewModel.swift */,
+				99A3325421C6A28B00166211 /* MovieDetailsViewModel.swift */,
 				999AF40321C4D75100D08154 /* Info.plist */,
 			);
 			path = ViewModel;
@@ -218,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99A3325521C6A28B00166211 /* MovieDetailsViewModel.swift in Sources */,
 				9917940F21C4EB1E00FB3BEE /* ViewModelFactory.swift in Sources */,
 				999AF40B21C4D92D00D08154 /* MoviesViewModel.swift in Sources */,
 				999AF41221C4D9E200D08154 /* BoxOfficeService.swift in Sources */,

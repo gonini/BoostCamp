@@ -33,6 +33,10 @@ extension SwinjectStoryboard {
             c.viewModel = r.resolve(MoviesViewModel.self)!
         }
         
+        defaultContainer.storyboardInitCompleted(MoviesCollectionViewController.self) { r, c in
+            c.viewModel = r.resolve(MoviesViewModel.self)!
+        }
+        
     }
     
 }

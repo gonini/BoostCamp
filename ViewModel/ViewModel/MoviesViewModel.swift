@@ -45,8 +45,8 @@ class MoviesViewModelImp: MoviesViewModel {
                     self.progressSubject.onNext(ProgressStatus.close)
                 },
                 onError: {
-                    self.moviesSubject.onError($0)
                     self.progressSubject.onNext(ProgressStatus.close)
+                    self.moviesSubject.onError($0)
                 }
             )
     }

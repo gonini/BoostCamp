@@ -1,19 +1,19 @@
 //
-//  MovieTableViewController.swift
+//  SecondViewController.swift
 //  BoostCamp
 //
-//  Created by 장공의 on 16/12/2018.
+//  Created by 장공의 on 12/12/2018.
 //  Copyright © 2018 zhanggoniui. All rights reserved.
 //
 
 import UIKit
+import RxSwift
 import Common
 import ViewModelInterface
-import RxSwift
 
-class MovieTableViewController: UIViewController {
+class MoviesCollectionViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     private var movies: [Movie] = [Movie]()
     private var progressAlert: UIActivityIndicatorView?
     var viewModel: MoviesViewModel?
@@ -29,15 +29,14 @@ class MovieTableViewController: UIViewController {
                 onNext: {
                     self.movies.removeAll()
                     self.movies += $0
-                    self.tableView.reloadData()
+                    self.collectionView.reloadData()
                     self.scrollToTop()
-                    
             }, onError: { _ in
                 self.showErrorAlert()
             })
-      
+        
         viewModel?.progressObservable
-        .observeOn(MainScheduler.instance)
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: {
                 if($0 == .show) {
                     self.progressAlert?.startAnimating()
@@ -45,24 +44,39 @@ class MovieTableViewController: UIViewController {
                     self.progressAlert?.stopAnimating()
                 }
             })
-        
-        // Do any additional setup after loading the view.
     }
-    
 }
 
-
-extension MovieTableViewController: UITableViewDelegate, UITableViewDataSource {
+extension MoviesCollectionViewController:
+    UICollectionViewDelegate,
+    UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollect", for: indexPath) as! MoveCollectionCell
         let movie = movies[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! MovieTableCell
         cell.setMovie(movie: movie)
-        return cell
+        return cell;
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let collectionViewCellWithd = collectionView.frame.width / 2 - 1
+        
+        return CGSize(width: collectionViewCellWithd, height: 327)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -80,15 +94,15 @@ extension MovieTableViewController: UITableViewDelegate, UITableViewDataSource {
             
             let previousScrollViewBottomInset = scrollView.contentInset.bottom
             scrollView.contentInset.bottom = previousScrollViewBottomInset + 50
+            
             viewModel?.refresh()
             scrollView.contentInset.bottom = previousScrollViewBottomInset
         }
     }
     
     func scrollToTop() {
-        let indexPath = IndexPath(row: NSNotFound, section: 0)
-        self.tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: false)
+        let inset = collectionView.contentInset
+        collectionView.contentOffset = CGPoint(x: -inset.left, y: -inset.top)
     }
+
 }
-
-

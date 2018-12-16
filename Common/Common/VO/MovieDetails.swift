@@ -24,6 +24,7 @@ public struct MovieDetails {
     let user_rating: Double
     let date: String
     let id: String
+    let comments: [Comment]
     
     public init(audience: Int,
                 actor: String,
@@ -38,7 +39,8 @@ public struct MovieDetails {
                 reservation_rate: Double,
                 user_rating: Double,
                 date: String,
-                id: String) {
+                id: String,
+                comments: [Comment]) {
         self.audience = audience
         self.actor = actor
         self.duration = duration
@@ -53,5 +55,6 @@ public struct MovieDetails {
         self.user_rating = user_rating
         self.date = date
         self.id = id
+        self.comments = comments
     }
 }
