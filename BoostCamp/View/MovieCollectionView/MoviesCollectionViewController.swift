@@ -56,12 +56,13 @@ class MoviesCollectionViewController: UIViewController {
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    deinit {
         viewModel?.dispose()
         movies.removeAll()
         progressAlert = nil
         collectionView = nil
     }
+    
 }
 
 extension MoviesCollectionViewController:

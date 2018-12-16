@@ -95,7 +95,8 @@ class MovieDetailsViewContoller: UIViewController {
         self.show(toController, sender: nil)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    
+    deinit {
         viewModel?.dispose()
         comments.removeAll()
         progressAlert = nil

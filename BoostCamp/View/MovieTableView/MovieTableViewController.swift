@@ -61,13 +61,13 @@ class MovieTableViewController: UIViewController {
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    deinit {
         viewModel?.dispose()
         movies.removeAll()
         progressAlert = nil
         tableView = nil
     }
-    
+
 }
 
 
