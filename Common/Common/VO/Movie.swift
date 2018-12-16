@@ -8,16 +8,16 @@
 
 import Foundation
 
-public struct Movie {
+public class Movie {
     
-    let rating: Rating
-    let thumb: String
-    let reservation_grade: Int
-    let title: String
-    let reservation_rate: Double
-    let user_rating: Double
-    let date: String
-    let id: String
+    public let rating: Rating
+    public let thumb: String
+    public let reservation_grade: String
+    public let title: String
+    public let reservation_rate: String
+    public let user_rating: String
+    public let date: String
+    public let id: String
     
     public init(rating: Rating,
                 thumb: String,
@@ -29,10 +29,10 @@ public struct Movie {
                 id: String) {
         self.rating = rating;
         self.thumb = thumb;
-        self.reservation_grade = reservation_grade;
+        self.reservation_grade =  String(reservation_grade);
         self.title = title;
-        self.reservation_rate = reservation_rate;
-        self.user_rating = user_rating;
+        self.reservation_rate = String(reservation_rate);
+        self.user_rating = String(user_rating);
         self.date = date;
         self.id = id;
     }

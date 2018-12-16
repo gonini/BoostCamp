@@ -13,9 +13,6 @@ class  NavigationViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let segmentBarItem = UIBarButtonItem(title: "asdasd", style: .plain, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = segmentBarItem
-        navigationBar.barStyle = .black
         
     }
 }

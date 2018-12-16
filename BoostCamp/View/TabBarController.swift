@@ -22,6 +22,7 @@ class TabBarController: UITabBarController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         preloadTabItems()
+        viewModel?.requestMovies(orderType: OrderType.advanceRate)
     }
     
     @IBAction func sortAction(_ sender: AnyObject) {
@@ -45,7 +46,7 @@ class TabBarController: UITabBarController  {
         })
         
         alertController.addAction(UIAlertAction(title: releaseDate,style: .default) { _ in
-            self.viewModel?.requestMovies(orderType: OrderType.advanceRate)
+            self.viewModel?.requestMovies(orderType: OrderType.releaseDate)
         })
         
         self.present(alertController, animated: true, completion: nil)
