@@ -53,3 +53,6 @@
 > *예외상황* : 네트워크 에러   
 > 사용자에게 에러 메시지를 띄우고 동작을 취하지 않는다. 
 
+### 모듈 구성
+![ModuleDiagram](Image/ModuleDiagram.png)
+
