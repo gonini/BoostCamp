@@ -56,3 +56,6 @@
 ### 모듈 구성
 ![ModuleDiagram](Image/ModuleDiagram.png)
 
+### 영화 목록 요청  다이어그램 
+![MoviesDiagram](Image/MoviesDiagram.png)
+
