@@ -66,7 +66,9 @@ class TabBarController: UITabBarController  {
             _ = viewController.view
         }
     }
-    override func viewDidDisappear(_ animated: Bool) {
+    
+    
+    deinit {
         viewModel = nil
     }
     
