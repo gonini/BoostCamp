@@ -12,7 +12,7 @@ import RxCocoa
 
 class Network {
     
-    private static let BASE_URL = "http://connect-boxoffice.run.goorm.io";
+    private static let BASE_URL = "http://connect-boxoffice.run.goorm.io"
 
     func request<T: Decodable>(methodType: HTTPMethod, resPath: ResourcesPath, reqParameter: Any) -> Single<T> {
         
@@ -20,7 +20,11 @@ class Network {
             return Single<T>.never()
         }
         
-        let request = URLRequest(url: self.createURL(resPath, reqParameter))
+        guard let url = self.createURL(resPath, reqParameter) else {
+            return Single<T>.never()
+        }
+        
+        let request = URLRequest(url: url)
         
         return Single<T>.create { single in
             
@@ -36,7 +40,7 @@ class Network {
                 }
                 
                 do {
-                    let result = try JSONDecoder.init().decode(T.self, from: data);
+                    let result = try JSONDecoder.init().decode(T.self, from: data)
                     single(.success((result)))
                 } catch {
                     single(.error(RxCocoaURLError.unknown))
@@ -52,15 +56,20 @@ class Network {
         }
     }
     
-    private func createURL(_ resPath: ResourcesPath, _ reqParameter: Any) -> URL {
-        var components = URLComponents(
-            url: URL(string: Network.BASE_URL + resPath.rawValue)!,
-            resolvingAgainstBaseURL: false
-            )!
+    private func createURL(_ resPath: ResourcesPath, _ reqParameter: Any) -> URL? {
+        guard let url = URL(string: Network.BASE_URL + resPath.rawValue) else {
+            return URL(string: "")
+        }
+        
+        guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+            return URL(string: "")
+        }
+        
+        var components = urlComponents
         
         components.queryItems = components.parsingQuery(sources: reqParameter)
         
-        return components.url!;
+        return components.url
     }
 }
 
@@ -73,12 +82,12 @@ fileprivate extension URLComponents {
         
         for (_, attr) in mirror.children.enumerated() {
             if let key = attr.label as String? {
-                parameters[key] = stringFromAny(attr.value);
+                parameters[key] = stringFromAny(attr.value)
             }
         }
         
         return parameters.map { (key, value) in
-            URLQueryItem(name: key, value: value);
+            URLQueryItem(name: key, value: value)
         }
     }
     

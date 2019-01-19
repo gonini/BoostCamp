@@ -21,10 +21,8 @@ class MovieTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         progressAlert = createProgressAlert()
 
-        
         viewModel?.moviesObservable
             .observeOn(MainScheduler.instance)
             .subscribe(
@@ -55,7 +53,10 @@ class MovieTableViewController: UIViewController {
         if segue.identifier == MovieDetailsViewContoller.MOVIE_ID_KEY {
             if let row = tableView?.indexPathForSelectedRow?.row {
                 let item = movies[row]
-                let toController = segue.destination as! MovieDetailsViewContoller
+                guard let toController = segue.destination as? MovieDetailsViewContoller else {
+                    return
+                }
+                
                 toController.movieId = item.id
             }
         }
@@ -79,7 +80,9 @@ extension MovieTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let movie = movies[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! MovieTableCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as? MovieTableCell else {
+            return UITableViewCell()
+        }
         cell.setMovie(movie: movie)
         return cell
     }

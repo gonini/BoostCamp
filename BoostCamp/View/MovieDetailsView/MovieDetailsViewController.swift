@@ -48,12 +48,16 @@ class MovieDetailsViewContoller: UIViewController {
                 }
             })
         
-        viewModel?.requestMovieDetails(movieId: movieId!)
+        guard let movieId = self.movieId else {
+            return
+        }
+        
+        viewModel?.requestMovieDetails(movieId: movieId)
         viewModel?.movieDtailsObservable
             .observeOn(MainScheduler.instance)
             .subscribe(
                 onNext: {
-                    self.initView(movieDetails: $0);
+                    self.initView(movieDetails: $0)
             }, onError: { _ in
                 self.showErrorAlert()
             })
@@ -64,7 +68,11 @@ class MovieDetailsViewContoller: UIViewController {
         self.comments += movieDetails.comments
         self.tableview.reloadData()
         
-        poster.downloaded(from: URL(string: movieDetails.image)!)
+        guard let url = movieDetails.image as? String else {
+            return
+        }
+
+        poster.downloaded(from: url)
         title = movieDetails.title
         
         movieTitle.text = movieDetails.title
@@ -90,7 +98,9 @@ class MovieDetailsViewContoller: UIViewController {
     }
     
     @objc private func onClickImageView() {
-        let toController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageViewContoller") as! ImageViewContoller 
+        guard let toController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ImageViewContoller") as? ImageViewContoller else {
+            return
+        }
         toController.posterImage = poster.image
         self.show(toController, sender: nil)
     }
@@ -113,7 +123,9 @@ extension MovieDetailsViewContoller: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let comment = comments[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell") as! CommentCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell") as? CommentCell else {
+            return UITableViewCell()
+        }
         
         cell.setComment(comment: comment)
         return cell

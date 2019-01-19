@@ -50,7 +50,10 @@ class MoviesCollectionViewController: UIViewController {
         if segue.identifier == MovieDetailsViewContoller.MOVIE_ID_KEY {
             if let row = collectionView?.indexPathsForSelectedItems?.first?.row {
                 let item = movies[row]
-                let toController = segue.destination as! MovieDetailsViewContoller
+                guard let toController = segue.destination as? MovieDetailsViewContoller else {
+                    return
+                }
+                
                 toController.movieId = item.id
             }
         }
@@ -75,10 +78,13 @@ extension MoviesCollectionViewController:
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollect", for: indexPath) as! MoveCollectionCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollect", for: indexPath) as? MoveCollectionCell else {
+            return UICollectionViewCell()
+        }
+        
         let movie = movies[indexPath.row]
         cell.setMovie(movie: movie)
-        return cell;
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
