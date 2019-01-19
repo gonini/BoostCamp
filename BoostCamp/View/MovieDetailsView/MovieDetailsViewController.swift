@@ -35,7 +35,6 @@ class MovieDetailsViewContoller: UIViewController {
     override func viewDidLoad() {
         
         progressAlert = createProgressAlert()
-        setBackButtonText()
         setUpImageView()
         
         viewModel?.progressObservable
@@ -82,10 +81,6 @@ class MovieDetailsViewContoller: UIViewController {
         advanceRate.text =  "\(movieDetails.reservation_grade)위 \(movieDetails.reservation_rate)"
         totalAttendance.text = movieDetails.audience
         story.text = movieDetails.synopsis
-    }
-    
-    private func setBackButtonText() {
-        self.navigationController?.navigationBar.topItem?.title = "영화목록"
     }
     
     private func setUpImageView() {
