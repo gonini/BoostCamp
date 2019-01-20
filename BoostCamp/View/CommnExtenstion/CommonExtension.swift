@@ -21,7 +21,7 @@ extension UIViewController {
         self.view.addSubview(indicator)
         self.view.bringSubviewToFront(indicator)
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        return indicator;
+        return indicator
     }
     
     func showErrorAlert() {

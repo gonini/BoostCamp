@@ -23,8 +23,6 @@ public extension OrderType {
             return "큐레이션"
         case .releaseDate:
             return "개봉일"
-        default:
-            return ""
         }
     }
 }

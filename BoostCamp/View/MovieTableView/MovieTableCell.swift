@@ -19,7 +19,11 @@ class MovieTableCell: UITableViewCell {
     @IBOutlet weak var releaseDate: UILabel!
     
     public func setMovie(movie: Movie) {
-        poster.downloaded(from: URL(string: movie.thumb)!)
+        guard let url = URL(string: movie.thumb) else {
+            return
+        }
+        
+        poster.downloaded(from: url)
         title.text = movie.title
         userRating.text = movie.user_rating
         reservationGrade.text = movie.reservation_grade

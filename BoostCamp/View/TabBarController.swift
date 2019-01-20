@@ -62,11 +62,14 @@ class TabBarController: UITabBarController  {
     }
     
     private func preloadTabItems() {
-        for viewController in self.viewControllers! {
+        guard let viewControllers = self.viewControllers else {
+            return
+        }
+        
+        for viewController in viewControllers {
             _ = viewController.view
         }
     }
-    
     
     deinit {
         viewModel = nil

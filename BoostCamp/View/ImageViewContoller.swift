@@ -16,8 +16,7 @@ class ImageViewContoller: UIViewController {
     public var posterImage: UIImage?
     
     override func viewDidLoad() {
-        poster.image = posterImage!
+        poster.image = posterImage
     }
-
     
 }
